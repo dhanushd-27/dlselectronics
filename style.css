@@ -1090,54 +1090,37 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
-/* Individual showcase item dimensions and styling based on actual image dimensions */
-.showcase-tv {
-  width: 120px;  /* Wider for landscape TV image (625×400) */
-  height: 90px;  /* Shorter height to maintain aspect ratio */
-}
-
-.showcase-ac {
-  width: 90px;   /* Square container for square AC image (500×500) */
-  height: 90px;
-}
-
-.showcase-fridge {
-  width: 80px;   /* Narrower for tall fridge image (297×840) */
-  height: 120px; /* Taller height to maintain aspect ratio */
-}
-
+/* All showcase items now have consistent dimensions for uniform appearance */
+.showcase-tv,
+.showcase-ac,
+.showcase-fridge,
 .showcase-washing {
-  width: 85px;   /* Medium width for washing machine (443×563) */
-  height: 110px; /* Taller height for portrait orientation */
+  width: 100px;  /* Consistent width for all items */
+  height: 100px; /* Consistent height for all items - square shape */
 }
 
 .showcase-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   border-radius: var(--radius-lg);
   transition: transform var(--duration-normal) var(--ease-standard);
+  /* Optimize image rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .showcase-item:hover {
   transform: translateY(-4px);
 }
 
-/* Individual hover effects to prevent overflow */
-.showcase-tv:hover .showcase-image {
-  transform: scale(1.08);
-}
-
-.showcase-ac:hover .showcase-image {
-  transform: scale(1.03);
-}
-
-.showcase-fridge:hover .showcase-image {
-  transform: scale(1.05);
-}
-
+/* Consistent hover effects for all showcase items */
+.showcase-tv:hover .showcase-image,
+.showcase-ac:hover .showcase-image,
+.showcase-fridge:hover .showcase-image,
 .showcase-washing:hover .showcase-image {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 /* Section Headers */
@@ -2034,25 +2017,13 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
   
-  /* Responsive showcase items - maintaining aspect ratios */
-  .showcase-tv {
-    width: 100px;  /* TV: wider landscape */
-    height: 75px;
-  }
-  
-  .showcase-ac {
-    width: 75px;   /* AC: square */
-    height: 75px;
-  }
-  
-  .showcase-fridge {
-    width: 70px;   /* Fridge: narrow tall */
-    height: 105px;
-  }
-  
+  /* Responsive showcase items - consistent dimensions */
+  .showcase-tv,
+  .showcase-ac,
+  .showcase-fridge,
   .showcase-washing {
-    width: 75px;   /* Washing: medium portrait */
-    height: 95px;
+    width: 80px;   /* Consistent width for all items */
+    height: 80px;  /* Consistent height for all items */
   }
   
   /* Responsive category icons - maintaining aspect ratios */
@@ -2159,25 +2130,13 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2rem;
   }
   
-  /* Extra small responsive showcase items - maintaining aspect ratios */
-  .showcase-tv {
-    width: 85px;   /* TV: wider landscape */
-    height: 65px;
-  }
-  
-  .showcase-ac {
-    width: 65px;   /* AC: square */
-    height: 65px;
-  }
-  
-  .showcase-fridge {
-    width: 60px;   /* Fridge: narrow tall */
-    height: 90px;
-  }
-  
+  /* Extra small responsive showcase items - consistent dimensions */
+  .showcase-tv,
+  .showcase-ac,
+  .showcase-fridge,
   .showcase-washing {
-    width: 65px;   /* Washing: medium portrait */
-    height: 80px;
+    width: 70px;   /* Consistent width for all items */
+    height: 70px;  /* Consistent height for all items */
   }
   
   /* Extra small responsive category icons - maintaining aspect ratios */
