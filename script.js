@@ -1,6 +1,6 @@
 // DLS Electronics App JavaScript - Final Fixed Version
 
-// Product data
+// Product data with image mapping
 const productData = {
   tv: [
     {
@@ -8,21 +8,24 @@ const productData = {
       name: "Samsung 43\" Smart LED TV",
       mrp: 35000,
       booking_amount: 10000,
-      features: ["4K Ultra HD", "Smart TV", "HDR Support", "Voice Control"]
+      features: ["4K Ultra HD", "Smart TV", "HDR Support", "Voice Control"],
+      image: "images/samsung-43.jpg"
     },
     {
       id: 2,
       name: "LG 55\" OLED Smart TV",
       mrp: 65000,
       booking_amount: 15000,
-      features: ["4K OLED", "WebOS", "Dolby Vision", "AI ThinQ"]
+      features: ["4K OLED", "WebOS", "Dolby Vision", "AI ThinQ"],
+      image: "images/samsung-43.jpg"
     },
     {
       id: 3,
       name: "Sony 32\" HD LED TV",
       mrp: 25000,
       booking_amount: 8000,
-      features: ["HD Ready", "X-Reality PRO", "Clear Audio+", "USB Playback"]
+      features: ["HD Ready", "X-Reality PRO", "Clear Audio+", "USB Playback"],
+      image: "images/samsung-43.jpg"
     }
   ],
   ac: [
@@ -31,21 +34,24 @@ const productData = {
       name: "LG 1.5 Ton 5 Star Split AC",
       mrp: 35000,
       booking_amount: 10000,
-      features: ["5 Star Rating", "Copper Condenser", "Wi-Fi Enabled", "Dual Inverter"]
+      features: ["5 Star Rating", "Copper Condenser", "Wi-Fi Enabled", "Dual Inverter"],
+      image: "images/lg-ac.jpg"
     },
     {
       id: 5,
       name: "Daikin 1 Ton Split AC",
       mrp: 32000,
       booking_amount: 9000,
-      features: ["3 Star Rating", "R32 Refrigerant", "Stabilizer Free", "PM 2.5 Filter"]
+      features: ["3 Star Rating", "R32 Refrigerant", "Stabilizer Free", "PM 2.5 Filter"],
+      image: "images/lg-ac.jpg"
     },
     {
       id: 6,
       name: "Voltas 2 Ton Window AC",
       mrp: 28000,
       booking_amount: 8000,
-      features: ["3 Star Rating", "Copper Condenser", "Auto Clean", "Turbo Cool"]
+      features: ["3 Star Rating", "Copper Condenser", "Auto Clean", "Turbo Cool"],
+      image: "images/lg-ac.jpg"
     }
   ],
   fridge: [
@@ -54,21 +60,24 @@ const productData = {
       name: "Whirlpool 265L Double Door",
       mrp: 25000,
       booking_amount: 8000,
-      features: ["Frost Free", "Energy Efficient", "Vegetable Crisper", "LED Lighting"]
+      features: ["Frost Free", "Energy Efficient", "Vegetable Crisper", "LED Lighting"],
+      image: "images/whirlpool-double-door.jpg"
     },
     {
       id: 8,
       name: "Samsung 253L Single Door",
       mrp: 18000,
       booking_amount: 6000,
-      features: ["Direct Cool", "Base Stand Drawer", "Toughened Glass", "Smart Connect"]
+      features: ["Direct Cool", "Base Stand Drawer", "Toughened Glass", "Smart Connect"],
+      image: "images/whirlpool-double-door.jpg"
     },
     {
       id: 9,
       name: "LG 687L Side by Side",
       mrp: 85000,
       booking_amount: 20000,
-      features: ["Frost Free", "Water Dispenser", "Door Cooling+", "Smart Diagnosis"]
+      features: ["Frost Free", "Water Dispenser", "Door Cooling+", "Smart Diagnosis"],
+      image: "images/whirlpool-double-door.jpg"
     }
   ],
   "washing-machine": [
@@ -77,21 +86,24 @@ const productData = {
       name: "IFB 8kg Front Load",
       mrp: 45000,
       booking_amount: 12000,
-      features: ["Front Load", "1400 RPM", "Steam Wash", "Aqua Energie"]
+      features: ["Front Load", "1400 RPM", "Steam Wash", "Aqua Energie"],
+      image: "images/washing-machine.jpg"
     },
     {
       id: 11,
       name: "LG 7kg Top Load",
       mrp: 22000,
       booking_amount: 7000,
-      features: ["Top Load", "Smart Inverter", "Punch+3", "Auto Restart"]
+      features: ["Top Load", "Smart Inverter", "Punch+3", "Auto Restart"],
+      image: "images/washing-machine.jpg"
     },
     {
       id: 12,
       name: "Samsung 6.5kg Semi-Automatic",
       mrp: 15000,
       booking_amount: 5000,
-      features: ["Semi Automatic", "Air Turbo Drying", "Magic Filter", "Rust Proof"]
+      features: ["Semi Automatic", "Air Turbo Drying", "Magic Filter", "Rust Proof"],
+      image: "images/washing-machine.jpg"
     }
   ]
 };
@@ -365,14 +377,16 @@ function loadFeaturedProducts() {
 
   // Get featured products (first product from each category)
   const featuredProducts = [
-    { ...productData.tv[0], category: 'TV', icon: '📺' },
-    { ...productData.ac[0], category: 'AC', icon: '❄️' },
-    { ...productData.fridge[0], category: 'Fridge', icon: '🧊' }
+    { ...productData.tv[0], category: 'TV', imageType: 'tv' },
+    { ...productData.ac[0], category: 'AC', imageType: 'ac' },
+    { ...productData.fridge[0], category: 'Fridge', imageType: 'fridge' }
   ];
 
   productsGrid.innerHTML = featuredProducts.map(product => `
     <div class="product-card">
-      <div class="product-image">${product.icon}</div>
+      <div class="product-image product-image--${product.imageType}">
+        <img src="${product.image}" alt="${product.name}" class="product-img">
+      </div>
       <div class="product-info">
         <h3 class="product-name">${product.name}</h3>
         <ul class="product-features">

@@ -455,7 +455,7 @@ pre code {
 
 .btn--outline:hover {
   background: var(--color-primary);
-  color: var(--color-btn-primary-text);
+  color: white;
 }
 
 .btn--sm {
@@ -652,20 +652,121 @@ select.form-control {
   .container {
     max-width: var(--container-sm);
   }
+
+  /* Small Screen Product Image Adjustments */
+  .product-image {
+    height: 200px;
+  }
+
+  .product-image--tv {
+    height: 200px;
+  }
+
+  .product-image--ac {
+    height: 200px;
+  }
+
+  .product-image--fridge {
+    height: 200px;
+  }
+
+  .product-image--washing-machine {
+    height: 200px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
 }
 @media (min-width: 768px) {
   .container {
     max-width: var(--container-md);
+  }
+
+  /* Medium Screen Product Image Adjustments */
+  .product-image {
+    height: 200px;
+  }
+
+  .product-image--tv {
+    height: 200px;
+  }
+
+  .product-image--ac {
+    height: 200px;
+  }
+
+  .product-image--fridge {
+    height: 200px;
+  }
+
+  .product-image--washing-machine {
+    height: 200px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 @media (min-width: 1024px) {
   .container {
     max-width: var(--container-lg);
   }
+
+  /* Tablet Product Image Adjustments */
+  .product-image {
+    height: 200px;
+  }
+
+  .product-image--tv {
+    height: 200px;
+  }
+
+  .product-image--ac {
+    height: 200px;
+  }
+
+  .product-image--fridge {
+    height: 200px;
+  }
+
+  .product-image--washing-machine {
+    height: 200px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
 @media (min-width: 1280px) {
   .container {
     max-width: var(--container-xl);
+  }
+
+  /* Desktop Product Image Adjustments */
+  .product-image {
+    height: 220px;
+  }
+
+  .product-image--tv {
+    height: 220px;
+  }
+
+  .product-image--ac {
+    height: 220px;
+  }
+
+  .product-image--fridge {
+    height: 220px;
+  }
+
+  .product-image--washing-machine {
+    height: 220px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-24);
   }
 }
 
@@ -1095,8 +1196,145 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4rem;
-  color: var(--color-brand-primary);
+  overflow: hidden;
+  position: relative;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--duration-normal) var(--ease-standard);
+  background: var(--color-bg-1);
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Loading state */
+.product-image::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-bg-1);
+  border-top: 3px solid var(--color-brand-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  opacity: 0.7;
+}
+
+.product-image:has(.product-img[src])::before {
+  display: none;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Fallback styling for product images */
+.product-image {
+  background: var(--color-bg-1);
+}
+
+.product-img {
+  display: block;
+}
+
+/* Ensure proper image display */
+.product-img[src*=".jpg"],
+.product-img[src*=".jpeg"],
+.product-img[src*=".png"],
+.product-img[src*=".webp"] {
+  display: block;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+/* TV Image Styling - Landscape images */
+.product-image--tv {
+  height: 220px;
+}
+
+.product-image--tv .product-img {
+  object-fit: contain;
+  object-position: center;
+  padding: var(--space-8);
+}
+
+/* AC Image Styling - Square images */
+.product-image--ac {
+  height: 220px;
+  background: linear-gradient(135deg, var(--color-bg-1) 0%, var(--color-brand-white) 100%);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.product-image--ac .product-img {
+  object-fit: contain;
+  object-position: center;
+  padding: var(--space-8);
+  transition: all var(--duration-normal) var(--ease-standard);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.product-image--ac:hover .product-img {
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(10, 88, 201, 0.15);
+}
+
+/* Fridge Image Styling - Tall portrait images */
+.product-image--fridge {
+  height: 220px;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: linear-gradient(135deg, var(--color-bg-1) 0%, var(--color-brand-white) 100%);
+}
+
+.product-image--fridge .product-img {
+  object-fit: contain;
+  object-position: center center;
+  padding: var(--space-8);
+  transition: all var(--duration-normal) var(--ease-standard);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.product-image--fridge:hover .product-img {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(10, 88, 201, 0.15);
+}
+
+/* Washing Machine Image Styling - Portrait images */
+.product-image--washing-machine {
+  height: 220px;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.product-image--washing-machine .product-img {
+  object-fit: cover;
+  object-position: center;
+  transition: all var(--duration-normal) var(--ease-standard);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.product-image--washing-machine:hover .product-img {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(10, 88, 201, 0.15);
 }
 
 .product-info {
@@ -1747,6 +1985,32 @@ h1, h2, h3, h4, h5, h6 {
   .share-buttons {
     flex-direction: column;
   }
+
+  /* Mobile Product Image Adjustments */
+  .product-image {
+    height: 180px;
+  }
+
+  .product-image--tv {
+    height: 180px;
+  }
+
+  .product-image--ac {
+    height: 180px;
+  }
+
+  .product-image--fridge {
+    height: 180px;
+  }
+
+  .product-image--washing-machine {
+    height: 180px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
 }
 
 @media (max-width: 480px) {
@@ -1769,6 +2033,35 @@ h1, h2, h3, h4, h5, h6 {
   
   .referral-code-display {
     flex-direction: column;
+  }
+
+  /* Extra Small Mobile Product Image Adjustments */
+  .product-image {
+    height: 160px;
+  }
+
+  .product-image--tv {
+    height: 160px;
+  }
+
+  .product-image--ac {
+    height: 160px;
+  }
+
+  .product-image--fridge {
+    height: 160px;
+  }
+
+  .product-image--washing-machine {
+    height: 160px;
+  }
+
+  .product-card {
+    margin-bottom: var(--space-16);
+  }
+
+  .products-grid {
+    gap: var(--space-12);
   }
 }
 
