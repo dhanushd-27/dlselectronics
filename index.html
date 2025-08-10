@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLS Electronics - Simple Life, Smart Life</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="DLS Electronics - Your trusted partner for smart home appliances. Book TVs, ACs, Fridges, and Washing Machines with easy EMI options.">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <h1>DLS Electronics</h1>
+                    <span class="tagline">Simple Life, Smart Life</span>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#products" class="nav-link">Products</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                        <li><a href="#referral" class="nav-link">Refer & Earn</a></li>
+                    </ul>
+                    <div class="language-selector">
+                        <select id="language-select" class="form-control">
+                            <option value="en">English</option>
+                            <option value="hi">Hindi</option>
+                            <option value="mr">Marathi</option>
+                        </select>
+                    </div>
+                </nav>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">Simple Life, Smart Life</h2>
+                    <p class="hero-subtitle">Transform your home with premium electronics. Book now with just ₹8,000 and get free home delivery through our unique referral program.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn--primary btn--lg" onclick="openBookingModal()">Book Now</button>
+                        <button class="btn btn--outline btn--lg" onclick="openReferralModal()">Refer & Earn Free Products</button>
+                    </div>
+                    <div class="trust-badges">
+                        <div class="trust-item">
+                            <span class="trust-icon">📞</span>
+                            <span>Call: 7770007110</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-showcase">
+                        <div class="product-showcase">
+                            <div class="showcase-item">📺</div>
+                            <div class="showcase-item">❄️</div>
+                            <div class="showcase-item">🧊</div>
+                            <div class="showcase-item">👕</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section id="products" class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Smart Home Appliance</h2>
+                <p>Book with minimum amount and get free delivery through referrals</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" onclick="viewCategory('tv')">
+                    <div class="category-icon">📺</div>
+                    <h3>Smart TVs</h3>
+                    <p>32" to 65" Smart LED TVs with 4K support</p>
+                    <div class="category-price">Starting from ₹25,000</div>
+                    <button class="btn btn--outline">View TVs</button>
+                </div>
+                <div class="category-card" onclick="viewCategory('ac')">
+                    <div class="category-icon">❄️</div>
+                    <h3>Air Conditioners</h3>
+                    <p>1 Ton to 2 Ton Split & Window ACs</p>
+                    <div class="category-price">Starting from ₹28,000</div>
+                    <button class="btn btn--outline">View ACs</button>
+                </div>
+                <div class="category-card" onclick="viewCategory('fridge')">
+                    <div class="category-icon">🧊</div>
+                    <h3>Refrigerators</h3>
+                    <p>Single & Double Door Frost-Free Fridges</p>
+                    <div class="category-price">Starting from ₹18,000</div>
+                    <button class="btn btn--outline">View Fridges</button>
+                </div>
+                <div class="category-card" onclick="viewCategory('washing-machine')">
+                    <div class="category-icon">👕</div>
+                    <h3>Washing Machines</h3>
+                    <p>Front Load & Top Load Automatic</p>
+                    <div class="category-price">Starting from ₹22,000</div>
+                    <button class="btn btn--outline">View Machines</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Products</h2>
+                <p>Most popular items with best referral success rates</p>
+            </div>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Our Referral System Works</h2>
+                <p>Get your product FREE by referring just 3 friends</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Book Your Product</h3>
+                    <p>Pay booking amount (₹8,000 - ₹12,000) for any product</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Share Your Code</h3>
+                    <p>Get unique referral code and share with friends via WhatsApp</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Friends Book Same/Higher</h3>
+                    <p>3 friends book same price or higher products</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Get FREE Delivery</h3>
+                    <p>Your product delivered FREE within 5 working days!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About DLS Electronics</h2>
+                    <p><strong>DLS Electronics</strong> is a venture of <strong>DLS Agro Infraventure Pvt Ltd</strong>, bringing you premium home appliances with innovative booking and referral solutions.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🏆</span>
+                            <div>
+                                <h4>Trusted Brand</h4>
+                                <p>GST registered company with transparent business practices</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🚚</span>
+                            <div>
+                                <h4>Free Delivery</h4>
+                                <p>Get free home delivery through our referral program</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💰</span>
+                            <div>
+                                <h4>Easy EMI</h4>
+                                <p>Flexible payment options with low booking amounts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="company-details">
+                    <h3>Company Information</h3>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <strong>GST Number:</strong>
+                            <span>27AAGCD7282A2ZQ</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Phone:</strong>
+                            <span>7770007110</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Email:</strong>
+                            <span>waffco4@gmail.com</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Domain:</strong>
+                            <span>dlsstore.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch for product inquiries and support</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>7770007110</p>
+                            <small>Mon-Sat, 9 AM - 8 PM</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>waffco4@gmail.com</p>
+                            <small>24/7 Email Support</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <button class="btn btn--primary" onclick="openWhatsApp()">Chat Now</button>
+                            <small>Quick responses</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DLS Electronics</h3>
+                    <p>A venture of DLS Agro Infraventure Pvt Ltd</p>
+                    <p class="tagline">Simple Life, Smart Life</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#" onclick="showTerms()">Terms & Conditions</a></li>
+                        <li><a href="#" onclick="showPrivacy()">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showRefund()">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📞 7770007110</p>
+                    <p>✉️ waffco4@gmail.com</p>
+                    <p>🏢 GST: 27AAGCD7282A2ZQ</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DLS Electronics - All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Book Your Product</h3>
+                <button class="modal-close" onclick="closeModal('booking-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="booking-steps">
+                    <div class="step active" id="step-1">
+                        <h4>Step 1: Product Selection</h4>
+                        <div class="form-group">
+                            <label class="form-label">Choose Product Category</label>
+                            <select class="form-control" id="product-category">
+                                <option value="">Select Category</option>
+                                <option value="tv">Smart TV</option>
+                                <option value="ac">Air Conditioner</option>
+                                <option value="fridge">Refrigerator</option>
+                                <option value="washing-machine">Washing Machine</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Select Product</label>
+                            <select class="form-control" id="product-select" disabled>
+                                <option value="">Choose product first</option>
+                            </select>
+                        </div>
+                        <div class="price-breakdown hidden" id="price-breakdown">
+                            <h4>Price Breakdown</h4>
+                            <div class="price-item">
+                                <span>MRP (मूळ किंमत):</span>
+                                <span id="product-mrp">₹0</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Booking Amount:</span>
+                                <span id="booking-amount">₹0</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Balance Payable:</span>
+                                <span id="balance-amount">₹0</span>
+                            </div>
+                        </div>
+                        <button class="btn btn--primary" onclick="nextStep(2)" id="next-to-details" disabled>Next: Enter Details</button>
+                    </div>
+
+                    <div class="step hidden" id="step-2">
+                        <h4>Step 2: Personal Details</h4>
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="customer-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Mobile Number</label>
+                            <input type="tel" class="form-control" id="customer-mobile" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">State</label>
+                            <select class="form-control" id="customer-state" required>
+                                <option value="">Select State</option>
+                                <option value="maharashtra">Maharashtra</option>
+                                <option value="delhi">Delhi</option>
+                                <option value="karnataka">Karnataka</option>
+                                <option value="gujarat">Gujarat</option>
+                                <option value="rajasthan">Rajasthan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Complete Address</label>
+                            <textarea class="form-control" id="customer-address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Referral Code (Optional)</label>
+                            <input type="text" class="form-control" id="referral-code" placeholder="Enter referral code if you have one">
+                        </div>
+                        <div class="step-buttons">
+                            <button class="btn btn--outline" onclick="prevStep(1)">Previous</button>
+                            <button class="btn btn--primary" onclick="nextStep(3)">Next: Review & Confirm</button>
+                        </div>
+                    </div>
+
+                    <div class="step hidden" id="step-3">
+                        <h4>Step 3: Terms & OTP Verification</h4>
+                        <div class="terms-section">
+                            <h5>Terms & Conditions</h5>
+                            <div class="terms-content">
+                                <p><strong>DLS Electronics Terms & Conditions:</strong></p>
+                                <ul>
+                                    <li>Booking amount is non-refundable after confirmation</li>
+                                    <li>Balance payment due within 45 days of booking</li>
+                                    <li>Free delivery applicable only through referral program completion</li>
+                                    <li>Products subject to availability</li>
+                                    <li>EMI options available on balance amount</li>
+                                    <li>Customer must accept terms via OTP for legal validity</li>
+                                </ul>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="terms-accept" required>
+                                    I accept the Terms & Conditions
+                                </label>
+                            </div>
+                        </div>
+                        <div class="otp-section">
+                            <h5>OTP Verification</h5>
+                            <p>We'll send an OTP to your mobile number for verification</p>
+                            <div class="form-group">
+                                <button class="btn btn--outline" onclick="sendOTP()" id="send-otp-btn" disabled>Send OTP</button>
+                            </div>
+                            <div class="form-group hidden" id="otp-input-group">
+                                <label class="form-label">Enter OTP</label>
+                                <div class="otp-inputs">
+                                    <input type="text" class="otp-digit" maxlength="1">
+                                    <input type="text" class="otp-digit" maxlength="1">
+                                    <input type="text" class="otp-digit" maxlength="1">
+                                    <input type="text" class="otp-digit" maxlength="1">
+                                </div>
+                                <button class="btn btn--primary mt-8" onclick="verifyOTP()" id="verify-otp-btn">Verify OTP</button>
+                            </div>
+                        </div>
+                        <div class="step-buttons">
+                            <button class="btn btn--outline" onclick="prevStep(2)">Previous</button>
+                            <button class="btn btn--primary" onclick="nextStep(4)" id="next-to-payment" disabled>Next: Payment</button>
+                        </div>
+                    </div>
+
+                    <div class="step hidden" id="step-4">
+                        <h4>Step 4: Payment Instructions</h4>
+                        <div class="payment-info">
+                            <h5>Payment Details</h5>
+                            <div class="payment-amount">
+                                <span>Amount to Pay:</span>
+                                <span class="amount" id="final-amount">₹0</span>
+                            </div>
+                            <div class="payment-methods">
+                                <h6>Payment Options:</h6>
+                                <div class="payment-option">
+                                    <strong>UPI Payment:</strong>
+                                    <p>Pay to: dlselectronics@paytm</p>
+                                    <div class="qr-placeholder">📱 QR Code Placeholder</div>
+                                </div>
+                                <div class="payment-option">
+                                    <strong>Bank Transfer:</strong>
+                                    <p>Account: DLS Agro Infraventure Pvt Ltd</p>
+                                    <p>Account No: XXXX-XXXX-XXXX</p>
+                                    <p>IFSC: XXXXXXXXX</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Upload Payment Screenshot</label>
+                                <input type="file" class="form-control" accept="image/*" id="payment-proof">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Transaction ID / UTR (Optional)</label>
+                                <input type="text" class="form-control" id="transaction-id">
+                            </div>
+                        </div>
+                        <div class="step-buttons">
+                            <button class="btn btn--outline" onclick="prevStep(3)">Previous</button>
+                            <button class="btn btn--primary" onclick="completeBooking()">Complete Booking</button>
+                        </div>
+                    </div>
+
+                    <div class="step hidden" id="step-5">
+                        <div class="success-content">
+                            <div class="success-icon">✅</div>
+                            <h4>Booking Successful!</h4>
+                            <p>Your booking has been confirmed. You will receive a receipt via email and WhatsApp.</p>
+                            <div class="booking-summary" id="booking-summary">
+                                <!-- Summary will be populated -->
+                            </div>
+                            <div class="next-steps">
+                                <h5>What's Next?</h5>
+                                <ol>
+                                    <li>Share your referral code with friends</li>
+                                    <li>When 3 friends book same/higher value products</li>
+                                    <li>Your product will be delivered FREE!</li>
+                                </ol>
+                            </div>
+                            <button class="btn btn--primary" onclick="openReferralModal()">View Referral Dashboard</button>
+                            <button class="btn btn--outline" onclick="closeModal('booking-modal')">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Referral Modal -->
+    <div id="referral-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Referral Dashboard</h3>
+                <button class="modal-close" onclick="closeModal('referral-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="referral-dashboard">
+                    <div class="referral-code-section">
+                        <h4>Your Referral Code</h4>
+                        <div class="referral-code-display">
+                            <span class="code" id="user-referral-code">DLS-ABCD123</span>
+                            <button class="btn btn--outline" onclick="copyReferralCode()">Copy Code</button>
+                        </div>
+                    </div>
+                    
+                    <div class="referral-stats">
+                        <div class="stat-card">
+                            <h4>Successful Referrals</h4>
+                            <div class="stat-number">0/3</div>
+                            <p>Refer 3 friends to get FREE delivery</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Pending Referrals</h4>
+                            <div class="stat-number">0</div>
+                            <p>Bookings awaiting payment confirmation</p>
+                        </div>
+                    </div>
+
+                    <div class="share-section">
+                        <h4>Share Your Code</h4>
+                        <div class="share-buttons">
+                            <button class="btn btn--primary" onclick="shareWhatsApp()">
+                                Share on WhatsApp
+                            </button>
+                            <button class="btn btn--outline" onclick="shareGeneric()">
+                                Copy Share Link
+                            </button>
+                        </div>
+                        <div class="share-message">
+                            <h5>Share Message:</h5>
+                            <p id="share-text">"Book premium electronics at DLS Electronics and get FREE delivery! Use my referral code DLS-ABCD123. Visit dlsstore.com or call 7770007110"</p>
+                        </div>
+                    </div>
+
+                    <div class="referral-list">
+                        <h4>Your Referrals</h4>
+                        <div id="referrals-container">
+                            <div class="no-referrals">
+                                <p>No referrals yet. Start sharing your code!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
