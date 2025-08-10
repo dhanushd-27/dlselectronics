@@ -47,7 +47,7 @@
   --color-background: var(--color-cream-50);
   --color-surface: var(--color-cream-100);
   --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
+  --color-text-secondary: var(--color-slate-900);
   --color-primary: var(--color-teal-500);
   --color-primary-hover: var(--color-teal-600);
   --color-primary-active: var(--color-teal-700);
@@ -61,7 +61,7 @@
   --color-error: var(--color-red-500);
   --color-success: var(--color-teal-500);
   --color-warning: var(--color-orange-500);
-  --color-info: var(--color-slate-500);
+  --color-info: var(--color-slate-900);
   --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
   --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
 
@@ -280,7 +280,7 @@
   --color-background: var(--color-cream-50);
   --color-surface: var(--color-cream-100);
   --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
+  --color-text-secondary: var(--color-slate-900);
   --color-primary: var(--color-teal-500);
   --color-primary-hover: var(--color-teal-600);
   --color-primary-active: var(--color-teal-700);
@@ -294,14 +294,14 @@
   --color-error: var(--color-red-500);
   --color-success: var(--color-teal-500);
   --color-warning: var(--color-orange-500);
-  --color-info: var(--color-slate-500);
+  --color-info: var(--color-slate-900);
   --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
 
   /* RGB versions for light mode */
   --color-success-rgb: var(--color-teal-500-rgb);
   --color-error-rgb: var(--color-red-500-rgb);
   --color-warning-rgb: var(--color-orange-500-rgb);
-  --color-info-rgb: var(--color-slate-500-rgb);
+  --color-info-rgb: var(--color-slate-900-rgb);
 }
 
 /* Base styles */
@@ -361,6 +361,8 @@ h6 {
 
 p {
   margin: 0 0 var(--space-16) 0;
+  color: var(--color-text);
+  color: #133452; /* Fallback color for better visibility */
 }
 
 a {
@@ -447,12 +449,13 @@ pre code {
 
 .btn--outline {
   background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
 }
 
 .btn--outline:hover {
-  background: var(--color-secondary);
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
 }
 
 .btn--sm {
@@ -529,11 +532,33 @@ select.form-control {
   outline: var(--focus-outline);
 }
 
+/* Placeholder styling for better visibility */
+.form-control::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.8;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.8;
+}
+
+.form-control::-moz-placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.8;
+}
+
+.form-control:-ms-input-placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.8;
+}
+
 .form-label {
   display: block;
   margin-bottom: var(--space-8);
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-sm);
+  color: var(--color-text);
 }
 
 .form-group {
@@ -835,7 +860,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link {
   font-weight: 500;
-  color: var(--color-slate-500);
+  color: var(--color-slate-900);
   text-decoration: none;
   padding: var(--space-8) 0;
   transition: color var(--duration-fast) var(--ease-standard);
@@ -983,6 +1008,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-header p {
   font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
+  color: #133452; /* Fallback color for better visibility */
 }
 
 /* Categories Section */
@@ -1026,13 +1052,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .category-card p {
   color: var(--color-text-secondary);
+  color: #133452; /* Fallback color for better visibility */
   margin-bottom: var(--space-16);
 }
 
 .category-price {
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: var(--color-brand-accent);
+  color: var(--color-brand-primary);
+  color: #0A58C9; /* Fallback color for maximum visibility */
   margin-bottom: var(--space-16);
 }
 
@@ -1110,12 +1138,14 @@ h1, h2, h3, h4, h5, h6 {
 .price-mrp {
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--color-brand-primary);
+  color: #0A58C9; /* Fallback color for maximum visibility */
 }
 
 .price-booking {
   font-size: var(--font-size-sm);
-  color: var(--color-brand-accent);
+  color: var(--color-brand-primary);
+  color: #0A58C9; /* Fallback color for maximum visibility */
   font-weight: 500;
 }
 
@@ -1226,6 +1256,9 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   padding: var(--space-8) 0;
   border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  color: #133452; /* Fallback color for maximum visibility */
+  font-weight: 500; /* Added for better readability */
 }
 
 .detail-item:last-child {
@@ -1271,6 +1304,8 @@ h1, h2, h3, h4, h5, h6 {
 .contact-item p {
   font-weight: 600;
   margin-bottom: var(--space-4);
+  color: #000000;
+  opacity: 0.4; /* Reduced opacity for lighter appearance on blue background */
 }
 
 .contact-item small {
@@ -1453,6 +1488,8 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   margin-bottom: var(--space-8);
   padding: var(--space-4) 0;
+  color: var(--color-text);
+  color: #133452; /* Fallback color for better visibility */
 }
 
 .price-item:last-child {
@@ -1460,6 +1497,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: var(--space-8);
   font-weight: 600;
   color: var(--color-brand-primary);
+  color: #0A58C9; /* Fallback color for maximum visibility */
 }
 
 .step-buttons {
@@ -1521,6 +1559,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .payment-amount .amount {
   color: var(--color-brand-primary);
+  color: #0A58C9; /* Fallback color for maximum visibility */
   font-size: var(--font-size-xl);
 }
 
@@ -1642,6 +1681,7 @@ h1, h2, h3, h4, h5, h6 {
 .share-message p {
   font-style: italic;
   color: var(--color-text-secondary);
+  color: #133452; /* Fallback color for better visibility */
   margin: 0;
 }
 
@@ -1730,4 +1770,18 @@ h1, h2, h3, h4, h5, h6 {
   .referral-code-display {
     flex-direction: column;
   }
+}
+
+/* Footer paragraph styling - white text for dark background */
+.footer p {
+  color: var(--color-brand-white);
+  color: #FFFFFF; /* Fallback color */
+  margin: 0 0 var(--space-16) 0;
+}
+
+/* Main paragraph styling - dark text for light backgrounds */
+p {
+  margin: 0 0 var(--space-16) 0;
+  color: var(--color-text);
+  color: #133452; /* Fallback color for better visibility */
 }
