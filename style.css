@@ -1009,8 +1009,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, var(--color-brand-grey) 0%, var(--color-brand-white) 100%);
-  padding: var(--space-32) 0;
-  min-height: 80vh;
+  padding: var(--space-32) 0 var(--space-32) 0; /* Increased bottom padding */
+  min-height: 85vh; /* Increased from 80vh to accommodate larger images */
   display: flex;
   align-items: center;
 }
@@ -1066,16 +1066,18 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: var(--space-16); /* Add padding around showcase */
 }
 
 .product-showcase {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-20);
+  gap: var(--space-24);  /* Increased from 20px for better spacing */
   padding: var(--space-32);
   background: var(--color-brand-white);
   border-radius: var(--radius-lg);
   box-shadow: 0 20px 40px rgba(10, 88, 201, 0.1);
+  border: 1px solid var(--color-border); /* Add subtle border */
 }
 
 /* Base showcase item styles */
@@ -1095,8 +1097,8 @@ h1, h2, h3, h4, h5, h6 {
 .showcase-ac,
 .showcase-fridge,
 .showcase-washing {
-  width: 100px;  /* Consistent width for all items */
-  height: 100px; /* Consistent height for all items - square shape */
+  width: 150px;  /* Increased from 100px for better visibility */
+  height: 150px; /* Increased from 100px for better visibility */
 }
 
 .showcase-image {
@@ -1113,6 +1115,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .showcase-item:hover {
   transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(10, 88, 201, 0.2); /* Enhanced shadow on hover */
 }
 
 /* Consistent hover effects for all showcase items */
@@ -1121,6 +1124,7 @@ h1, h2, h3, h4, h5, h6 {
 .showcase-fridge:hover .showcase-image,
 .showcase-washing:hover .showcase-image {
   transform: scale(1.05);
+  filter: brightness(1.1); /* Slightly brighten on hover */
 }
 
 /* Section Headers */
@@ -1160,7 +1164,7 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   transition: all var(--duration-normal) var(--ease-standard);
   cursor: pointer;
-  height: 320px; /* Fixed height for all cards */
+  height: 360px; /* Increased from 320px to accommodate larger images */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1200,23 +1204,23 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Standardized category icon dimensions for consistent card sizes */
 .category-card:nth-child(1) .category-icon {
-  width: 80px;   /* Standard size for all icons */
-  height: 80px;
+  width: 120px;   /* Increased from 80px for better visibility */
+  height: 120px;
 }
 
 .category-card:nth-child(2) .category-icon {
-  width: 80px;   /* Standard size for all icons */
-  height: 80px;
+  width: 120px;   /* Increased from 80px for better visibility */
+  height: 120px;
 }
 
 .category-card:nth-child(3) .category-icon {
-  width: 80px;   /* Standard size for all icons */
-  height: 80px;
+  width: 120px;   /* Increased from 80px for better visibility */
+  height: 120px;
 }
 
 .category-card:nth-child(4) .category-icon {
-  width: 80px;   /* Standard size for all icons */
-  height: 80px;
+  width: 120px;   /* Increased from 80px for better visibility */
+  height: 120px;
 }
 
 .category-image {
@@ -1225,6 +1229,31 @@ h1, h2, h3, h4, h5, h6 {
   object-fit: cover;
   border-radius: var(--radius-lg);
   transition: transform var(--duration-normal) var(--ease-standard);
+}
+
+/* Optimize category images for different product types */
+.category-card:nth-child(1) .category-image {
+  object-fit: contain; /* TV images are landscape, use contain */
+  object-position: center;
+  padding: var(--space-8);
+}
+
+.category-card:nth-child(2) .category-image {
+  object-fit: contain; /* AC images are square, use contain */
+  object-position: center;
+  padding: var(--space-8);
+}
+
+.category-card:nth-child(3) .category-image {
+  object-fit: contain; /* Fridge images are tall, use contain */
+  object-position: center;
+  padding: var(--space-8);
+}
+
+.category-card:nth-child(4) .category-image {
+  object-fit: contain; /* Washing machine images vary, use contain */
+  object-position: center;
+  padding: var(--space-8);
 }
 
 .category-card h3 {
@@ -1337,9 +1366,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Ensure proper image display */
+.product-img[src*=".png"],
 .product-img[src*=".jpg"],
 .product-img[src*=".jpeg"],
-.product-img[src*=".png"],
 .product-img[src*=".webp"] {
   display: block;
 }
@@ -1354,9 +1383,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .product-image--tv .product-img {
-  object-fit: contain;
+  object-fit: contain; /* TV images are landscape, use contain */
   object-position: center;
-  padding: var(--space-8);
+  padding: var(--space-8); /* Add padding for better visibility */
 }
 
 /* AC Image Styling - Square images */
@@ -1367,7 +1396,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .product-image--ac .product-img {
-  object-fit: contain;
+  object-fit: contain; /* AC images are square, use contain */
   object-position: center;
   padding: var(--space-8);
   transition: all var(--duration-normal) var(--ease-standard);
@@ -1388,8 +1417,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .product-image--fridge .product-img {
-  object-fit: contain;
-  object-position: center center;
+  object-fit: contain; /* Fridge images are tall, use contain */
+  object-position: center;
   padding: var(--space-8);
   transition: all var(--duration-normal) var(--ease-standard);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
@@ -2022,29 +2051,29 @@ h1, h2, h3, h4, h5, h6 {
   .showcase-ac,
   .showcase-fridge,
   .showcase-washing {
-    width: 80px;   /* Consistent width for all items */
-    height: 80px;  /* Consistent height for all items */
+    width: 120px;   /* Increased from 80px for better visibility */
+    height: 120px;  /* Increased from 80px for better visibility */
   }
   
   /* Responsive category icons - maintaining aspect ratios */
   .category-card:nth-child(1) .category-icon {
-    width: 70px;   /* TV: wider landscape */
-    height: 52px;
+    width: 100px;   /* TV: wider landscape - increased from 70px */
+    height: 75px;   /* Increased from 52px */
   }
   
   .category-card:nth-child(2) .category-icon {
-    width: 52px;   /* AC: square */
-    height: 52px;
+    width: 75px;   /* AC: square - increased from 52px */
+    height: 75px;  /* Increased from 52px */
   }
   
   .category-card:nth-child(3) .category-icon {
-    width: 45px;   /* Fridge: narrow tall */
-    height: 67px;
+    width: 65px;   /* Fridge: narrow tall - increased from 45px */
+    height: 97px;  /* Increased from 67px */
   }
   
   .category-card:nth-child(4) .category-icon {
-    width: 48px;   /* Washing: medium portrait */
-    height: 60px;
+    width: 70px;   /* Washing: medium portrait - increased from 48px */
+    height: 87px;  /* Increased from 60px */
   }
   
   .mobile-menu-toggle {
@@ -2135,29 +2164,29 @@ h1, h2, h3, h4, h5, h6 {
   .showcase-ac,
   .showcase-fridge,
   .showcase-washing {
-    width: 70px;   /* Consistent width for all items */
-    height: 70px;  /* Consistent height for all items */
+    width: 100px;   /* Increased from 70px for better visibility */
+    height: 100px;  /* Increased from 70px for better visibility */
   }
   
   /* Extra small responsive category icons - maintaining aspect ratios */
   .category-card:nth-child(1) .category-icon {
-    width: 60px;   /* TV: wider landscape */
-    height: 45px;
+    width: 85px;   /* TV: wider landscape - increased from 60px */
+    height: 64px;  /* Increased from 45px */
   }
   
   .category-card:nth-child(2) .category-icon {
-    width: 45px;   /* AC: square */
-    height: 45px;
+    width: 64px;   /* AC: square - increased from 45px */
+    height: 64px;  /* Increased from 45px */
   }
   
   .category-card:nth-child(3) .category-icon {
-    width: 38px;   /* Fridge: narrow tall */
-    height: 57px;
+    width: 55px;   /* Fridge: narrow tall - increased from 38px */
+    height: 83px;  /* Increased from 38px */
   }
   
   .category-card:nth-child(4) .category-icon {
-    width: 42px;   /* Washing: medium portrait */
-    height: 52px;
+    width: 60px;   /* Washing: medium portrait - increased from 42px */
+    height: 75px;  /* Increased from 52px */
   }
   
   .hero-subtitle {
@@ -2207,6 +2236,42 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Very small screen adjustments */
+@media (max-width: 360px) {
+  .showcase-tv,
+  .showcase-ac,
+  .showcase-fridge,
+  .showcase-washing {
+    width: 90px;   /* Minimum size for very small screens */
+    height: 90px;
+  }
+  
+  .category-card:nth-child(1) .category-icon {
+    width: 75px;
+    height: 56px;
+  }
+  
+  .category-card:nth-child(2) .category-icon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .category-card:nth-child(3) .category-icon {
+    width: 48px;
+    height: 72px;
+  }
+  
+  .category-card:nth-child(4) .category-icon {
+    width: 52px;
+    height: 65px;
+  }
+  
+  .product-showcase {
+    gap: var(--space-16); /* Reduce gap for very small screens */
+    padding: var(--space-24);
+  }
+}
+
 /* Footer paragraph styling - white text for dark background */
 .footer p {
   color: var(--color-brand-white);
@@ -2219,4 +2284,29 @@ p {
   margin: 0 0 var(--space-16) 0;
   color: var(--color-text);
   color: #133452; /* Fallback color for better visibility */
+}
+
+/* Optimize showcase images for different product types */
+.showcase-tv .showcase-image {
+  object-fit: contain; /* TV images are landscape, use contain */
+  object-position: center;
+  padding: var(--space-8); /* Add padding for better visibility */
+}
+
+.showcase-ac .showcase-image {
+  object-fit: contain; /* AC images are square, use contain */
+  object-position: center;
+  padding: var(--space-8);
+}
+
+.showcase-fridge .showcase-image {
+  object-fit: contain; /* Fridge images are tall, use contain */
+  object-position: center;
+  padding: var(--space-8);
+}
+
+.showcase-washing .showcase-image {
+  object-fit: contain; /* Washing machine images vary, use contain */
+  object-position: center;
+  padding: var(--space-8);
 }
