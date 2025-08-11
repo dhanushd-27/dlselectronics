@@ -9,7 +9,7 @@ const productData = {
       mrp: 35000,
       booking_amount: 10000,
       features: ["4K Ultra HD", "Smart TV", "HDR Support", "Voice Control"],
-      image: "images/samsung-43.jpg"
+      image: "images/tv3.png"
     },
     {
       id: 2,
@@ -17,7 +17,7 @@ const productData = {
       mrp: 65000,
       booking_amount: 15000,
       features: ["4K OLED", "WebOS", "Dolby Vision", "AI ThinQ"],
-      image: "images/samsung-43.jpg"
+      image: "images/tv3.png"
     },
     {
       id: 3,
@@ -25,7 +25,7 @@ const productData = {
       mrp: 25000,
       booking_amount: 8000,
       features: ["HD Ready", "X-Reality PRO", "Clear Audio+", "USB Playback"],
-      image: "images/samsung-43.jpg"
+      image: "images/tv3.png"
     }
   ],
   ac: [
@@ -35,7 +35,7 @@ const productData = {
       mrp: 35000,
       booking_amount: 10000,
       features: ["5 Star Rating", "Copper Condenser", "Wi-Fi Enabled", "Dual Inverter"],
-      image: "images/lg-ac.jpg"
+      image: "images/ac3.png"
     },
     {
       id: 5,
@@ -43,7 +43,7 @@ const productData = {
       mrp: 32000,
       booking_amount: 9000,
       features: ["3 Star Rating", "R32 Refrigerant", "Stabilizer Free", "PM 2.5 Filter"],
-      image: "images/lg-ac.jpg"
+      image: "images/ac3.png"
     },
     {
       id: 6,
@@ -51,7 +51,7 @@ const productData = {
       mrp: 28000,
       booking_amount: 8000,
       features: ["3 Star Rating", "Copper Condenser", "Auto Clean", "Turbo Cool"],
-      image: "images/lg-ac.jpg"
+      image: "images/ac3.png"
     }
   ],
   fridge: [
@@ -61,7 +61,7 @@ const productData = {
       mrp: 25000,
       booking_amount: 8000,
       features: ["Frost Free", "Energy Efficient", "Vegetable Crisper", "LED Lighting"],
-      image: "images/whirlpool-double-door.jpg"
+      image: "images/fridge2.png"
     },
     {
       id: 8,
@@ -69,7 +69,7 @@ const productData = {
       mrp: 18000,
       booking_amount: 6000,
       features: ["Direct Cool", "Base Stand Drawer", "Toughened Glass", "Smart Connect"],
-      image: "images/whirlpool-double-door.jpg"
+      image: "images/fridge2.png"
     },
     {
       id: 9,
@@ -77,7 +77,7 @@ const productData = {
       mrp: 85000,
       booking_amount: 20000,
       features: ["Frost Free", "Water Dispenser", "Door Cooling+", "Smart Diagnosis"],
-      image: "images/whirlpool-double-door.jpg"
+      image: "images/fridge2.png"
     }
   ],
   "washing-machine": [
@@ -87,7 +87,7 @@ const productData = {
       mrp: 45000,
       booking_amount: 12000,
       features: ["Front Load", "1400 RPM", "Steam Wash", "Aqua Energie"],
-      image: "images/washing-machine.jpg"
+      image: "images/wm2.png"
     },
     {
       id: 11,
@@ -95,7 +95,7 @@ const productData = {
       mrp: 22000,
       booking_amount: 7000,
       features: ["Top Load", "Smart Inverter", "Punch+3", "Auto Restart"],
-      image: "images/washing-machine.jpg"
+      image: "images/wm2.png"
     },
     {
       id: 12,
